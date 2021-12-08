@@ -11,12 +11,20 @@ FormView.setup = function(el) {
     this.inputEl = el.querySelector('[type=text]')//폼 태그 안에 있는 타입이 텍스트 인 것
     this.resetEl = el.querySelector('[type=reset]')//폼 태그 안에 있는 타입이 리셋인 것
     this.showResetBtn(false)
-    console.log(FormView)
+    this.bindEvents()
 }
 
 
 FormView.showResetBtn = function(show = true) {
     this.resetEl.style.display = show ? 'block' : 'none'
+}
+
+FormView.bindEvents = function() {
+    this.inputEl.addEventListener('keyup', e => this.onkeyup(e))
+}
+
+FormView.onkeyup = function() {
+    this.showResetBtn(this.inputEl.value.length)
 }
 
 export default FormView // FormView 라는 객체를 내보냄
