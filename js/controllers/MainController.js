@@ -23,6 +23,8 @@ export default {
     // submit(엔터 눌렀을 시) 받았을 시
     onSubmit(input) {
         console.log(input)
+        FormView.inputEl.value = ''
+        FormView.showResetBtn(false)
     },
     // x 버튼 눌렀을 시
     onResetForm() {
