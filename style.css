@@ -55,6 +55,14 @@ ul.tabs {
   padding: 15px;
   border-bottom: 1px solid #ccc;
   position: relative;
+  cursor: pointer;
+}
+.list li:hover {
+  background: #2ac1bc;
+  color: #fff;
+}
+.list li:hover .number {
+  color: #fff;
 }
 .list li:last-child {
   border-bottom: none;
@@ -106,29 +114,4 @@ form {
 #search-result img {
   width: 30%;
   height: 30%;
-}
-
-.search_01 {
-  border: 1px solid #ccc;
-}
-.search_B {
-  display: none;
-}
-
-.search_01 li {
-  width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-top: none;
-  color: #999;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-}
-.search_01 li:last-child {
-  border-bottom: none;
-}
-.search_01 li span {
-  margin-right: 10px;
 }
