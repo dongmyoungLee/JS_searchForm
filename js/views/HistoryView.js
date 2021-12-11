@@ -4,4 +4,30 @@ const tag = '[HistroyView]'
 
 const HistroyView = Object.create(KeywordView)
 
-export default KeywordView
+HistroyView.messages.NO_KEYWORDS = '검색 이력이 없습니다'
+
+HistroyView.getKeywordHtml = function(data) {
+    return data.reduce((html, item) => {
+        html += `<li data-keyword="${item.keyword}">
+        ${item.keyword}
+        <span class="date">${item.date}</span>
+        <button class="btn-remove"></button>
+        </li>`
+        return html
+    }, '<ul class="list">') + '</ul>'
+}
+
+HistroyView.bindRemoveBtn = function() {
+    Array.from(this.el.querySelectorAll('button.btn-remove')).forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation()
+            this.onRemove(btn.parentElement.dataset.keyword)
+        })
+    })
+}
+
+HistroyView.onRemove = function(keyword) {
+    this.emit('@remove', {keyword})
+}
+
+export default HistroyView

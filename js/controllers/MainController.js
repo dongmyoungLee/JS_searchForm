@@ -7,6 +7,7 @@ import HistoryView from '../views/HistoryView.js'
 import SearchModel from '../models/SearchModel.js'
 import KeywordModel from '../models/KeywordModel.js'
 import HistoryModel from '../models/HistoryModel.js'
+import HistroyView from '../views/HistoryView.js'
 
 
 const tag = '[MainController]'
@@ -29,6 +30,7 @@ export default {
 
         HistoryView.setup(document.querySelector('#search-history'))
         .on('@click', e => this.onClickHistory(e.detail.keyword))
+        .on('@remove', e => this.onRemoveHistory(e.detail.keyword))
 
         ResultView.setup(document.querySelector('#search-result'))
         /*
@@ -50,8 +52,10 @@ export default {
 
         if(this.selectedTab === '추천 검색어') {
             this.fetchSearchKeyword()
+            HistroyView.hide()
         } else {
             this.fetchSearchHistory()
+            KeywordView.hide()
         }
         
         ResultView.hide()
@@ -64,7 +68,7 @@ export default {
     },
     fetchSearchHistory() {
         HistoryModel.list().then(data => {
-            HistoryView.render(data)
+            HistoryView.render(data).bindRemoveBtn()
         })
     },
 
@@ -110,6 +114,10 @@ export default {
     },
     onClickHistory(keyword) {
         this.search(keyword)
+    },
+    onRemoveHistory(keyword) {
+        HistoryModel.remove(keyword)
+        this.renderView()
     }
 
 }
