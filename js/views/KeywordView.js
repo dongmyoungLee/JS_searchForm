@@ -37,7 +37,7 @@ KeywordView.getKeywordHtml = function(data) {
 KeywordView.bindClickEvent = function() {
     Array.from(this.el.querySelectorAll('li')).forEach(li => {
         li.addEventListener('click', e => this.onClickKeyword(e))
-    })    
+    })
 }
 
 

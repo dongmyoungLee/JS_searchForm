@@ -21,17 +21,20 @@ ResultView.render = function(data = []) {
 }
 
 ResultView.getSearchResultHtml = function(data) {
-    return data.reduce((html, item) => {``
+    return data.reduce((html, item) => {
         html += this.getSearchItemHtml(item)
         return html
     }, '<ul>') + '</ul>'
 }
 
 ResultView.getSearchItemHtml = function(item) {
-    return `<li>
-        <img src='${item.image}'>
-        <p>${item.name}</p>
-    </li>`
+    if(FormView.inputEl.value === item.name) {
+        return `<li>
+            <img src='${item.image}'>
+            <p>${item.name}</p>
+        </li>`
+    }
+    
 }
 
 export default ResultView
