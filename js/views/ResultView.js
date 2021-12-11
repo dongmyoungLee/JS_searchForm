@@ -1,4 +1,6 @@
+import FormView from './FormView.js'
 import View from './View.js'
+
 
 const tag = '[ResultView]'
 

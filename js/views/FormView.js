@@ -80,6 +80,9 @@ FormView.onClickReset = function() {
     // false 전달로 버튼 사라지게 함 
 }
 
+FormView.setValue = function(value='') {
+    this.inputEl.value = value;
+    this.showResetBtn(this.inputEl.value.length)
+}
 
-
-export default FormView // FormView 라는 객체를 내보냄
+export default FormView // FormView 라q는 객체를 내보냄
