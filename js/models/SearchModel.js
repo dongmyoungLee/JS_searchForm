@@ -12,7 +12,7 @@ const data = [
     {
         id: 3,
         name: '검은색 푸들',
-        image: 'https://lh3.googleusercontent.com/proxy/YFcd8gj-Co-f4SHI-x9o3yWRoEBvzgXkF3JdQRD3hljZC_DY5MBBNC_8cTrkehqn6kk0z4lPLsqmpp7VkIT-nZPch0ZkVjz7Qqcj_qVhdJhAEphQ28TD'
+        image: 'https://mblogthumb-phinf.pstatic.net/20151101_165/df1809_1446388186701ivkpF_JPEG/DSC_3651_copy.jpg?type=w2'
     },
     {
         id: 4,

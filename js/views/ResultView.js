@@ -14,8 +14,8 @@ ResultView.setup = function(el) {
     this.init(el)
 }
 
+// 
 ResultView.render = function(data = []) {
-    console.log(tag, 'render()',data)
     this.el.innerHTML = data.length ? this.getSearchResultHtml(data) : this.messages.NO_RESULT
     this.show()
 }
@@ -33,6 +33,8 @@ ResultView.getSearchItemHtml = function(item) {
             <img src='${item.image}'>
             <p>${item.name}</p>
         </li>`
+    } else {
+        return `<li></li>`
     }
     
 }
